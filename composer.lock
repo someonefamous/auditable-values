@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "847d2a6169805016a66d2e27aaef1adf",
+    "content-hash": "9e4c56a7ddcae0d6790e54442999b348",
     "packages": [
         {
             "name": "brick/math",
@@ -1540,52 +1540,6 @@
                 }
             ],
             "time": "2020-08-18T17:17:46+00:00"
-        },
-        {
-            "name": "someonefamous/laravel-findby",
-            "version": "2.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/someonefamous/laravel-findby.git",
-                "reference": "1ee93b938547fef9a4bf73ec455a8cf932b49780"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/someonefamous/laravel-findby/zipball/1ee93b938547fef9a4bf73ec455a8cf932b49780",
-                "reference": "1ee93b938547fef9a4bf73ec455a8cf932b49780",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/support": ">=5",
-                "php": ">=7"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "SomeoneFamous\\FindBy\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Someone Famous",
-                    "email": "someonefamous@password99.com"
-                }
-            ],
-            "description": "Extended 'find' functionality for Eloquent (Laravel).",
-            "keywords": [
-                "database",
-                "eloquent",
-                "laravel"
-            ],
-            "support": {
-                "issues": "https://github.com/someonefamous/laravel-findby/issues",
-                "source": "https://github.com/someonefamous/laravel-findby/tree/2.0.0"
-            },
-            "time": "2020-11-27T06:18:16+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
