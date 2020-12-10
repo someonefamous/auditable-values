@@ -4,7 +4,7 @@ namespace SomeoneFamous\AuditableValues\Tests\Unit;
 
 use Carbon\Carbon;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use SomeoneFamous\AuditableValues\Models\TestModel;
+use SomeoneFamous\AuditableValues\Tests\Models\TestModel;
 use SomeoneFamous\AuditableValues\Tests\TestCase;
 
 class ValuesTest extends TestCase

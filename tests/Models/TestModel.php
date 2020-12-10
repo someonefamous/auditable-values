@@ -1,6 +1,6 @@
 <?php
 
-namespace SomeoneFamous\AuditableValues\Models;
+namespace SomeoneFamous\AuditableValues\Tests\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;

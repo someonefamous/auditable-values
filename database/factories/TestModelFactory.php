@@ -3,7 +3,7 @@
 namespace SomeoneFamous\AuditableValues\Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use SomeoneFamous\AuditableValues\Models\TestModel;
+use SomeoneFamous\AuditableValues\Tests\Models\TestModel;
 
 class TestModelFactory extends Factory
 {
