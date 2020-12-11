@@ -40,14 +40,18 @@ trait AuditableValues
 
     public function setValue($value = null, ?Carbon $time = null): self
     {
-        $time = $time ?: Carbon::now();
+        $now = Carbon::now();
+
+        $time = $time ?: $now;
 
         $this->deleteValue($time);
 
         DB::table($this->values_table_name)->insert([
             $this->values_foreign_key_field => $this->id,
             'active_from' => $time,
-            'value' => $value
+            'value' => $value,
+            'created_at' => $now,
+            'updated_at' => $now
         ]);
 
         return $this;
@@ -62,7 +66,7 @@ trait AuditableValues
             ->where(function($query) use ($time) {
                 $query->where('active_to', '>=', $time)->orWhereNull('active_to');
             })
-            ->update(['active_to' => $time]);
+            ->update(['active_to' => $time, 'updated_at' => Carbon::now()]);
     }
 
     public function getHistory(?Carbon $start_time = null, ?Carbon $end_time = null)
