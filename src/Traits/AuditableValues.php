@@ -73,26 +73,16 @@ trait AuditableValues
     {
         $query = DB::table($this->values_table_name)->where($this->values_foreign_key_field, $this->id);
 
-        if ($start_time === null && $end_time !== null) {
-            $query = $query->where(function($query) use ($end_time) {
-                $query->where('active_from', '<=', $end_time)->orWhereNull('active_from');
+        if ($start_time !== null) {
+            $query->where(function($query) use ($start_time) {
+                $query->where('active_to', '>', $start_time)->orWhereNull('active_to');
             });
         }
 
-        if ($start_time !== null && $end_time === null) {
-            $query = $query->where(function($query) use ($start_time) {
-                $query->where('active_to', '>=', $start_time)->orWhereNull('active_to');
+        if ($end_time !== null) {
+            $query->where(function($query) use ($end_time) {
+                $query->where('active_from', '<', $end_time)->orWhereNull('active_from');
             });
-        }
-
-        if ($start_time !== null && $end_time !== null) {
-            $query = $query
-                ->where(function($query) use ($start_time) {
-                    $query->where('active_to', '>=', $start_time)->orWhereNull('active_to');
-                })
-                ->where(function($query) use ($end_time) {
-                    $query->where('active_from', '<=', $end_time)->orWhereNull('active_from');
-                });
         }
 
         return $query->get();
