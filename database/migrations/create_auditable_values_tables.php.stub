@@ -3,21 +3,24 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use SomeoneFamous\AuditableValues\Tests\Models\TestModel;
 
 class CreateAuditableValuesTables extends Migration
 {
     public function up()
     {
         $auditable_models = [
-            'test_model_values' => 'test_model_id'
+            TestModel::class
         ];
 
-        foreach ($auditable_models as $table => $foreign_key_field) {
+        foreach ($auditable_models as $class) {
 
-            Schema::create($table, function (Blueprint $table) use ($foreign_key_field) {
+            $model = new $class;
+
+            Schema::create($model->values_table_name, function (Blueprint $table) use ($model) {
 
                 $table->id();
-                $table->foreignId($foreign_key_field)->constrained();
+                $table->foreignId($model->values_foreign_key_field)->constrained();
                 $table->unsignedTinyInteger('type')->nullable();
                 $table->text('value')->nullable();
                 $table->timestamp('active_from')->nullable();
