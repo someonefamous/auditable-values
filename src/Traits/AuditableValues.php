@@ -23,7 +23,7 @@ trait AuditableValues
         return $this->getValue();
     }
 
-    public function getValue(?Carbon $time =  null)
+    public function getValue(?Carbon $time = null)
     {
         $time = $time ?: Carbon::now();
 
@@ -47,6 +47,7 @@ trait AuditableValues
         $this->deleteValue($time);
 
         DB::table($this->values_table_name)->insert([
+
             $this->values_foreign_key_field => $this->id,
             'active_from' => $time,
             'value' => $value,
