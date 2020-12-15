@@ -20,7 +20,7 @@ class TestCase extends \Orchestra\Testbench\TestCase
 
     protected function getEnvironmentSetUp($app)
     {
-        include_once __DIR__ . '/../database/migrations/create_test_models_table.php.stub';
+        include_once __DIR__ . '/database/migrations/create_test_models_table.php';
         include_once __DIR__ . '/../database/migrations/create_auditable_values_tables.php.stub';
 
         (new \CreateTestModelsTable())->up();
